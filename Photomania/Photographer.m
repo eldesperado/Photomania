@@ -1,13 +1,17 @@
 //
-//  ViewController.h
+//  Photographer.m
 //  Photomania
 //
 //  Created by El Desperado on 6/9/13.
 //  Copyright (c) 2013 El Desperado. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "Photographer.h"
 
-@interface ViewController : UIViewController
+
+@implementation Photographer
+
+@dynamic name;
+@dynamic photos;
 
 @end
