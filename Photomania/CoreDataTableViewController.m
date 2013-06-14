@@ -1,9 +1,11 @@
 //
 //  CoreDataTableViewController.m
+//  Photomania
 //
-//  Created for Stanford CS193p Fall 2011.
-//  Copyright 2011 Stanford University. All rights reserved.
+//  Created by El Desperado on 6/9/13.
+//  Copyright (c) 2013 El Desperado. All rights reserved.
 //
+
 
 #import "CoreDataTableViewController.h"
 

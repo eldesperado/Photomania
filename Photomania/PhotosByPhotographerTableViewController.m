@@ -17,6 +17,10 @@
 
 @synthesize photographer = _photographer;
 
+- (void)viewDidLoad
+{
+}
+
 - (void) setupFetchedResultsController
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Photo"];

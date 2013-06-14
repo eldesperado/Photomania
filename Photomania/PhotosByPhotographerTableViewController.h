@@ -10,6 +10,7 @@
 #import "Photographer.h"
 #import "CoreDataTableViewController.h"
 
+
 @interface PhotosByPhotographerTableViewController : CoreDataTableViewController
 
 @property (nonatomic, strong) Photographer *photographer;

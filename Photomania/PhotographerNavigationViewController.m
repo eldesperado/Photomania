@@ -7,12 +7,15 @@
 //
 
 #import "PhotographerNavigationViewController.h"
+#import "ECSlidingViewController.h"
+#import "MenuViewController.h"
 
 @interface PhotographerNavigationViewController ()
 
 @end
 
 @implementation PhotographerNavigationViewController
+@synthesize menuButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -23,10 +26,34 @@
     return self;
 }
 
+#pragma mark - Action for Menu Button
+- (IBAction)revealMenu:(id)sender
+{
+    [self.slidingViewController anchorTopViewTo:ECRight];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+    //Create Menu Button
+    self.menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
+
+    menuButton.frame = CGRectMake(8, 10, 34, 24);
+    [menuButton setBackgroundImage:[UIImage imageNamed:@"menuButton.png"] forState:UIControlStateNormal];
+    [menuButton addTarget:self action:@selector(revealMenu:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:self.menuButton];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+	
+    if ( ![self.slidingViewController.underLeftViewController isKindOfClass:[MenuViewController class]] ) {
+        self.slidingViewController.underLeftViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
+        [self.view addGestureRecognizer:self.slidingViewController.panGesture];
+    }
 }
 
 - (void)didReceiveMemoryWarning

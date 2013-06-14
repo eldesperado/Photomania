@@ -10,4 +10,6 @@
 
 @interface PhotographerNavigationViewController : UINavigationController
 
+@property (nonatomic, strong) UIButton *menuButton;
+
 @end

@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "CoreDataTableViewController.h"
+#import "TTTAttributedLabel.h"
 
-@interface PhotographersTableViewController : CoreDataTableViewController
+
+@interface PhotographersTableViewController : CoreDataTableViewController <TTTAttributedLabelDelegate>
 
 @property (nonatomic, strong) UIManagedDocument *photoDatabase;
+
 @end

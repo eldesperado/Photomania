@@ -12,10 +12,41 @@
 #import "Photo+Flickr.h"
 #import "PhotosByPhotographerTableViewController.h"
 
+#import "ECSlidingViewController.h"
+#import "MenuViewController.h"
+
+#import "HomeTableViewCell.h"
+
 @interface PhotographersTableViewController ()
 @end
 
 @implementation PhotographersTableViewController
+@synthesize photoDatabase = _photoDatabase;
+
+#pragma mark - Side Menu
+- (void) viewDidLoad
+{
+    [super viewDidLoad];
+    
+    // Remove table cell separator
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    
+    // Assign our own backgroud for the view
+    self.parentViewController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"common_bg"]];
+    self.tableView.backgroundColor = [UIColor clearColor];
+    
+    // Add padding to the top of the table view
+    UIEdgeInsets inset = UIEdgeInsetsMake(5, 0, 0, 0);
+    self.tableView.contentInset = inset;
+    self.navigationItem.title = @"Flickr Photographers";
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    [[self navigationItem] setBackBarButtonItem:backButton];
+    
+    //Add shadow to distiguise with navigation
+    self.view.layer.shadowOpacity = 0.75f;
+    self.view.layer.shadowRadius = 10.0f;
+    self.view.layer.shadowColor = [UIColor blackColor].CGColor;
+}
 
 - (void) setupFetchedResultsController
 {
@@ -24,8 +55,6 @@
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.photoDatabase.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
 }
-
-@synthesize photoDatabase = _photoDatabase;
 
 - (void) fetchedFlickrDataIntoDocument: (UIManagedDocument *)document
 {
@@ -80,13 +109,47 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Photographer Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    HomeTableViewCell *cell = (HomeTableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+
+    if (cell == nil) {
+        cell = [[HomeTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
     
     // Configure the cell...
     Photographer *photographer = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = photographer.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d photos", [photographer.photos count]];
+    cell.postTitle.text = photographer.name;
+    
+    NSString *postDescription = [NSString stringWithFormat:@"%d photos", [photographer.photos count]];
+    
+    
+    cell.postDescription = [NSString stringWithFormat:@"%d photos", [photographer.photos count]];
+
+    // Assign our own background image for the cell
+    UIImage *background = [self cellBackgroundForRowAtIndexPath:indexPath];
+    
+    UIImageView *cellBackgroundView = [[UIImageView alloc] initWithImage:background];
+    cellBackgroundView.image = background;
+    cell.backgroundView = cellBackgroundView;
     return cell;
+}
+
+// Set background for cells
+- (UIImage *)cellBackgroundForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger rowCount = [self tableView:[self tableView] numberOfRowsInSection:0];
+    NSInteger rowIndex = indexPath.row;
+    UIImage *background = nil;
+    
+    if (rowIndex == 0) {
+        background = [UIImage imageNamed:@"cell_middle.png"];
+    } else if (rowIndex == rowCount - 1) {
+        background = [UIImage imageNamed:@"cell_middle.png"];
+    } else {
+        background = [UIImage imageNamed:@"cell_middle.png"];
+    }
+    
+    return background;
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
