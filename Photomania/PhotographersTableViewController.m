@@ -103,8 +103,14 @@
     // Configure the cell...
     Photographer *photographer = [self.fetchedResultsController objectAtIndexPath:indexPath];
 
+    Photo* photo = [[photographer.photos allObjects] objectAtIndex:0];
+    NSString *featureImageURL = photo.imageURL;
+    UIImage *featureImage = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:featureImageURL]]];
+    
     cell.userName.text = photographer.name;
-    [cell setLoveCountText:[NSString stringWithFormat:@"%d Love", [photographer.photos count]]];
+    [cell setLoveCountText:[NSString stringWithFormat:@"%d Photo", [photographer.photos count]]];
+    [cell.featuredImage setImage:featureImage];
+    cell.postTitle.text = photo.title;
     return cell;
 }
 
