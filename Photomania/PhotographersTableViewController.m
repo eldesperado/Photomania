@@ -15,7 +15,7 @@
 #import "ECSlidingViewController.h"
 #import "MenuViewController.h"
 
-#import "HomeTableViewCell.h"
+#import "MyCustomCell.h"
 
 @interface PhotographersTableViewController ()
 @end
@@ -27,25 +27,12 @@
 - (void) viewDidLoad
 {
     [super viewDidLoad];
-    
-    // Remove table cell separator
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    
-    // Assign our own backgroud for the view
-    self.parentViewController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"common_bg"]];
-    self.tableView.backgroundColor = [UIColor clearColor];
-    
-    // Add padding to the top of the table view
-    UIEdgeInsets inset = UIEdgeInsetsMake(5, 0, 0, 0);
-    self.tableView.contentInset = inset;
-    self.navigationItem.title = @"Flickr Photographers";
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
-    [[self navigationItem] setBackBarButtonItem:backButton];
-    
-    //Add shadow to distiguise with navigation
-    self.view.layer.shadowOpacity = 0.75f;
-    self.view.layer.shadowRadius = 10.0f;
-    self.view.layer.shadowColor = [UIColor blackColor].CGColor;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    // Return the number of sections.
+    return 1;
 }
 
 - (void) setupFetchedResultsController
@@ -66,6 +53,9 @@
                 [Photo photoWithFlickrInfo:photoInfo inManagedObjectContext:document.managedObjectContext];
             }
         }];
+    });
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
     });
 
 }
@@ -108,49 +98,26 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Photographer Cell";
-    HomeTableViewCell *cell = (HomeTableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-
-    if (cell == nil) {
-        cell = [[HomeTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
-    
+    static NSString *CellIdentifier = @"PhotoCell";
+    MyCustomCell *cell = (MyCustomCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     // Configure the cell...
     Photographer *photographer = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.postTitle.text = photographer.name;
-    
-    NSString *postDescription = [NSString stringWithFormat:@"%d photos", [photographer.photos count]];
-    
-    
-    cell.postDescription = [NSString stringWithFormat:@"%d photos", [photographer.photos count]];
 
-    // Assign our own background image for the cell
-    UIImage *background = [self cellBackgroundForRowAtIndexPath:indexPath];
-    
-    UIImageView *cellBackgroundView = [[UIImageView alloc] initWithImage:background];
-    cellBackgroundView.image = background;
-    cell.backgroundView = cellBackgroundView;
+    cell.userName.text = photographer.name;
+    [cell setLoveCountText:[NSString stringWithFormat:@"%d Love", [photographer.photos count]]];
     return cell;
 }
 
-// Set background for cells
-- (UIImage *)cellBackgroundForRowAtIndexPath:(NSIndexPath *)indexPath
+- (float) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSInteger rowCount = [self tableView:[self tableView] numberOfRowsInSection:0];
-    NSInteger rowIndex = indexPath.row;
-    UIImage *background = nil;
-    
-    if (rowIndex == 0) {
-        background = [UIImage imageNamed:@"cell_middle.png"];
-    } else if (rowIndex == rowCount - 1) {
-        background = [UIImage imageNamed:@"cell_middle.png"];
-    } else {
-        background = [UIImage imageNamed:@"cell_middle.png"];
-    }
-    
-    return background;
+    return 612.0f;
 }
+
+/*- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSArray *fetchedObjects = [[self.fetchedResultsController fetchedObjects] valueForKey:@"name"];
+    
+    return [HomeTableViewCell heightForCellWithText:[fetchedObjects objectAtIndex:indexPath.row]];
+} */
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

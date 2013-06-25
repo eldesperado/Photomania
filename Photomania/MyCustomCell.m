@@ -26,4 +26,22 @@
     // Configure the view for the selected state
 }
 
+
+- (void) setLoveCountText:(NSString *) postLoveCountText
+{
+    //[self.description setText: descriptionText];
+    [self.postLoveCountText setText: postLoveCountText afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
+        NSRange stringRange = NSMakeRange(1, 2);
+        UIFont *boldSystemFont = [UIFont boldSystemFontOfSize:18.0f];
+        
+        CTFontRef font = CTFontCreateWithName((__bridge CFStringRef)boldSystemFont.fontName, boldSystemFont.pointSize, NULL);
+        
+        [mutableAttributedString addAttribute:(NSString *)kCTFontAttributeName value:(__bridge id)font range:stringRange];
+        
+        CFRelease(font);
+        return mutableAttributedString;
+    }];
+    
+}
+
 @end

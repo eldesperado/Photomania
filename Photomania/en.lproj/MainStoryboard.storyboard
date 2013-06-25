@@ -8,31 +8,44 @@
         <scene sceneID="65P-Rb-iha">
             <objects>
                 <tableViewController id="fI4-wi-aj1" customClass="PhotosByPhotographerTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="fm4-2n-rhI">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="274" sectionHeaderHeight="22" sectionFooterHeight="22" id="fm4-2n-rhI">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Photo Cell" textLabel="3FL-sv-eus" detailTextLabel="RgU-ch-55h" style="IBUITableViewCellStyleSubtitle" id="ItK-cx-aYq">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PhotographerCell" rowHeight="274" id="ItK-cx-aYq" customClass="MyCustomCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="274"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="273"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3FL-sv-eus">
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLj-Db-5TY" customClass="TTTAttributedLabel">
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RgU-ch-55h">
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="na2-Y1-NE8" customClass="TTTAttributedLabel">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="39" id="hlU-2T-NYV"/>
+                                                <constraint firstAttribute="width" constant="244" id="nqp-kA-I3c"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="WLj-Db-5TY" firstAttribute="top" secondItem="ItK-cx-aYq" secondAttribute="top" constant="10" id="0dF-cd-Vu6"/>
+                                    <constraint firstItem="WLj-Db-5TY" firstAttribute="leading" secondItem="ItK-cx-aYq" secondAttribute="leading" constant="26" id="0wo-CJ-Cv4"/>
+                                    <constraint firstItem="na2-Y1-NE8" firstAttribute="leading" secondItem="WLj-Db-5TY" secondAttribute="leading" type="default" id="kW1-Tz-aBM"/>
+                                    <constraint firstItem="na2-Y1-NE8" firstAttribute="top" secondItem="ItK-cx-aYq" secondAttribute="top" constant="32" id="uTL-mq-xq2"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="description" destination="na2-Y1-NE8" id="0PX-yh-KvF"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -44,7 +57,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GhX-of-yDd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="896" y="-20"/>
+            <point key="canvasLocation" x="876" y="-4"/>
         </scene>
         <!--Init View Controller-->
         <scene sceneID="hc7-XV-gyi">
@@ -123,10 +136,197 @@
         <scene sceneID="qWF-tg-5e4">
             <objects>
                 <tableViewController storyboardIdentifier="PhotographersTableView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WYx-mc-xcx" customClass="PhotographersTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="9CB-P0-n6G">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="412" sectionHeaderHeight="22" sectionFooterHeight="22" id="9CB-P0-n6G">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PhotoCell" rowHeight="612" id="ej8-79-7gw" customClass="MyCustomCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="612"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="611"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LFf-aK-bCk" customClass="TTTAttributedLabel">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="abK-4U-kGt"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
+                                            <color key="textColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Or7-JY-dnz" customClass="TTTAttributedLabel">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="U7K-NW-hh0"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                                            <color key="textColor" red="0.67843137254901964" green="0.68235294117647061" blue="0.6588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y2B-kq-PDu" customClass="TTTAttributedLabel">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="w1o-8t-Oqp"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                            <color key="textColor" red="0.38039215686274508" green="0.37647058823529411" blue="0.36470588235294116" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktK-Bk-GAZ" customClass="TTTAttributedLabel">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="14" id="hjE-77-qUf"/>
+                                                <constraint firstAttribute="width" constant="220" id="ves-FO-qrX"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                                            <color key="textColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="284" translatesAutoresizingMaskIntoConstraints="NO" id="eo2-DS-SR5" customClass="TTTAttributedLabel">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="eLr-85-Yjf"/>
+                                            </constraints>
+                                            <string key="text">Thật ra là địa chỉ là đối diện 35 nguyễn thái học, mình ko nhớ số quán chỉ nhớ tiệm đối diện nên ghi đại thế :D Quán bữa nay mới làm lại trông sạch sẽ hẳn ra, quán có một điểm đặc biệt là chả có đũa, muỗng gì cả nên ai cũng giống như ai, ăn bốc bằng tay cả :D 
+Ăn rất ngon, tương cũng khá đặc trưng, quán bán nem nướng và cả bò lá lốt nướng
+Giá : 5k / 1 cây (lần cuối mình ăn là như thế, giờ chắc lên giá rồi)</string>
+                                            <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="13"/>
+                                            <color key="textColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="featured_img@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="5PH-12-MCh">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="186" id="pla-9g-03J"/>
+                                            </constraints>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="ratingBox@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="Gh4-ia-hQg">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="zuI-yu-JPa"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UV6-wd-U5N">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="42" id="4Gy-Iy-Xuw"/>
+                                                <constraint firstAttribute="height" constant="50" id="Xzt-FQ-N7K"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="24"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="userAvatar@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="TnH-Gn-VhI">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="RLX-dK-7Tg"/>
+                                                <constraint firstAttribute="width" constant="30" id="lZi-iN-QVq"/>
+                                            </constraints>
+                                        </imageView>
+                                        <view contentMode="scaleToFill" restorationIdentifier="bottomBar" translatesAutoresizingMaskIntoConstraints="NO" id="ah7-mU-VWq">
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="postLoveCountBG@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="gar-LO-mL0">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="84" id="muF-bM-COD"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="39 Love" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zg7-co-FZl" customClass="TTTAttributedLabel">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="36" id="qnh-6q-A3u"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
+                                                    <color key="textColor" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.93333333333333335" green="0.92941176470588238" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="zg7-co-FZl" firstAttribute="leading" secondItem="ah7-mU-VWq" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="6gM-i5-Nkn"/>
+                                                <constraint firstItem="gar-LO-mL0" firstAttribute="top" secondItem="zg7-co-FZl" secondAttribute="top" type="default" id="BOf-JJ-xRv"/>
+                                                <constraint firstItem="zg7-co-FZl" firstAttribute="bottom" secondItem="gar-LO-mL0" secondAttribute="bottom" type="default" id="DY3-5I-cbj"/>
+                                                <constraint firstItem="gar-LO-mL0" firstAttribute="trailing" secondItem="zg7-co-FZl" secondAttribute="trailing" type="default" id="Dsr-k6-5fb"/>
+                                                <constraint firstItem="gar-LO-mL0" firstAttribute="leading" secondItem="ah7-mU-VWq" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="sRG-9c-WFd"/>
+                                                <constraint firstItem="zg7-co-FZl" firstAttribute="centerY" secondItem="ah7-mU-VWq" secondAttribute="centerY" type="default" id="sfk-i0-UOB"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" restorationIdentifier="commentBar" translatesAutoresizingMaskIntoConstraints="NO" id="uAP-t3-RV2">
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Khi sáng mình đi ăn sáng thấy quán này ngon nên chia sẻ lên OhYeaP cho mọi người cùng thưởng thức" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="242" translatesAutoresizingMaskIntoConstraints="NO" id="oHq-e4-dmL" customClass="TTTAttributedLabel">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="46" id="gri-7y-kwf"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="userAvatar.png" translatesAutoresizingMaskIntoConstraints="NO" id="4Ii-PV-NH9">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="Nlv-uS-EOr"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.93333333333333335" green="0.92941176470588238" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="4Ii-PV-NH9" firstAttribute="top" secondItem="uAP-t3-RV2" secondAttribute="top" constant="13" id="FER-66-EV7"/>
+                                                <constraint firstItem="oHq-e4-dmL" firstAttribute="top" secondItem="uAP-t3-RV2" secondAttribute="top" constant="29" id="Rfq-tF-gt9"/>
+                                                <constraint firstAttribute="trailing" secondItem="oHq-e4-dmL" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Xzn-dE-c5u"/>
+                                                <constraint firstItem="oHq-e4-dmL" firstAttribute="leading" secondItem="4Ii-PV-NH9" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="me4-qD-5nV"/>
+                                                <constraint firstItem="4Ii-PV-NH9" firstAttribute="leading" secondItem="uAP-t3-RV2" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="xni-X2-f0c"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xpz-jL-E55" customClass="TTTAttributedLabel">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="232" id="tdr-iZ-aX9"/>
+                                                <constraint firstAttribute="height" constant="21" id="ujC-tq-RoJ"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="uAP-t3-RV2" firstAttribute="trailing" secondItem="ej8-79-7gw" secondAttribute="trailing" type="default" id="087-NV-T79"/>
+                                    <constraint firstItem="5PH-12-MCh" firstAttribute="trailing" secondItem="ej8-79-7gw" secondAttribute="trailing" type="default" id="0TO-nH-Rjj"/>
+                                    <constraint firstAttribute="bottom" secondItem="uAP-t3-RV2" secondAttribute="bottom" constant="95" id="2bb-gf-lkk"/>
+                                    <constraint firstItem="Gh4-ia-hQg" firstAttribute="top" secondItem="ej8-79-7gw" secondAttribute="top" constant="152" id="2f2-dI-ypY"/>
+                                    <constraint firstItem="Or7-JY-dnz" firstAttribute="leading" secondItem="ej8-79-7gw" secondAttribute="leading" constant="20" type="default" id="33J-yC-B2e"/>
+                                    <constraint firstAttribute="trailing" secondItem="LFf-aK-bCk" secondAttribute="trailing" constant="20" type="default" id="6J8-k8-Chl"/>
+                                    <constraint firstItem="uAP-t3-RV2" firstAttribute="top" secondItem="ej8-79-7gw" secondAttribute="top" constant="416" id="85s-GX-guF"/>
+                                    <constraint firstItem="ah7-mU-VWq" firstAttribute="top" secondItem="eo2-DS-SR5" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="D51-sI-xie"/>
+                                    <constraint firstItem="TnH-Gn-VhI" firstAttribute="leading" secondItem="ej8-79-7gw" secondAttribute="leading" constant="20" type="default" id="E6V-CS-kDp"/>
+                                    <constraint firstAttribute="bottom" secondItem="xpz-jL-E55" secondAttribute="bottom" constant="165" id="IO8-bn-wlj"/>
+                                    <constraint firstItem="uAP-t3-RV2" firstAttribute="leading" secondItem="ej8-79-7gw" secondAttribute="leading" type="default" id="KhV-cv-Hcc"/>
+                                    <constraint firstAttribute="trailing" secondItem="ktK-Bk-GAZ" secondAttribute="trailing" constant="20" type="default" id="MsZ-2y-OAD"/>
+                                    <constraint firstItem="eo2-DS-SR5" firstAttribute="top" secondItem="ej8-79-7gw" secondAttribute="top" constant="297" id="NTR-eh-cs4"/>
+                                    <constraint firstItem="eo2-DS-SR5" firstAttribute="leading" secondItem="ej8-79-7gw" secondAttribute="leading" constant="20" type="default" id="WGp-hg-fTZ"/>
+                                    <constraint firstItem="ktK-Bk-GAZ" firstAttribute="bottom" secondItem="TnH-Gn-VhI" secondAttribute="bottom" type="default" id="X4G-gM-sbz"/>
+                                    <constraint firstItem="y2B-kq-PDu" firstAttribute="top" secondItem="ej8-79-7gw" secondAttribute="top" constant="252" id="Yyk-LZ-Cx6"/>
+                                    <constraint firstItem="LFf-aK-bCk" firstAttribute="top" secondItem="UV6-wd-U5N" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Zgx-59-izC"/>
+                                    <constraint firstItem="xpz-jL-E55" firstAttribute="leading" secondItem="y2B-kq-PDu" secondAttribute="leading" type="default" id="ZpA-zt-Imp"/>
+                                    <constraint firstItem="Or7-JY-dnz" firstAttribute="top" secondItem="ej8-79-7gw" secondAttribute="top" constant="227" id="d8C-k8-bcX"/>
+                                    <constraint firstItem="ah7-mU-VWq" firstAttribute="trailing" secondItem="ej8-79-7gw" secondAttribute="trailing" type="default" id="eyr-gQ-djb"/>
+                                    <constraint firstAttribute="trailing" secondItem="y2B-kq-PDu" secondAttribute="trailing" constant="20" type="default" id="fIH-yn-wZ9"/>
+                                    <constraint firstItem="LFf-aK-bCk" firstAttribute="leading" secondItem="ej8-79-7gw" secondAttribute="leading" constant="20" type="default" id="g7d-Rv-0la"/>
+                                    <constraint firstItem="5PH-12-MCh" firstAttribute="top" secondItem="ej8-79-7gw" secondAttribute="top" type="default" id="gC2-zD-cFs"/>
+                                    <constraint firstAttribute="bottom" secondItem="ah7-mU-VWq" secondAttribute="bottom" constant="203" id="ghh-pd-3lh"/>
+                                    <constraint firstAttribute="trailing" secondItem="Or7-JY-dnz" secondAttribute="trailing" constant="20" type="default" id="iaj-IZ-BRB"/>
+                                    <constraint firstItem="Gh4-ia-hQg" firstAttribute="leading" secondItem="ej8-79-7gw" secondAttribute="leading" constant="10" id="jHv-k3-jzo"/>
+                                    <constraint firstItem="LFf-aK-bCk" firstAttribute="top" secondItem="Gh4-ia-hQg" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="jQG-bz-nv5"/>
+                                    <constraint firstItem="Gh4-ia-hQg" firstAttribute="top" secondItem="UV6-wd-U5N" secondAttribute="top" type="default" id="lE9-EM-5Gh"/>
+                                    <constraint firstItem="ah7-mU-VWq" firstAttribute="leading" secondItem="ej8-79-7gw" secondAttribute="leading" type="default" id="mT6-NM-kt7"/>
+                                    <constraint firstItem="5PH-12-MCh" firstAttribute="leading" secondItem="ej8-79-7gw" secondAttribute="leading" type="default" id="pLH-Md-6Hq"/>
+                                    <constraint firstItem="y2B-kq-PDu" firstAttribute="leading" secondItem="TnH-Gn-VhI" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="sCj-is-sei"/>
+                                    <constraint firstItem="TnH-Gn-VhI" firstAttribute="top" secondItem="Or7-JY-dnz" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="tk3-hp-pqo"/>
+                                    <constraint firstItem="UV6-wd-U5N" firstAttribute="leading" secondItem="ej8-79-7gw" secondAttribute="leading" constant="20" type="default" id="um0-uM-so2"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="avatarImage" destination="TnH-Gn-VhI" id="fLZ-RI-5tl"/>
+                                    <outlet property="featuredImage" destination="5PH-12-MCh" id="ePL-HV-iin"/>
+                                    <outlet property="postDescription" destination="Or7-JY-dnz" id="6Cy-2c-1qJ"/>
+                                    <outlet property="postLoveCountText" destination="zg7-co-FZl" id="BKo-ZA-0eM"/>
+                                    <outlet property="postTitle" destination="LFf-aK-bCk" id="xff-R2-vHJ"/>
+                                    <outlet property="ratingScore" destination="UV6-wd-U5N" id="02f-L3-PKZ"/>
+                                    <outlet property="timeStampText" destination="ktK-Bk-GAZ" id="MIV-Pu-M6p"/>
+                                    <outlet property="userName" destination="y2B-kq-PDu" id="0I5-oO-ToI"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="WYx-mc-xcx" id="sLM-PR-ON9"/>
                             <outlet property="delegate" destination="WYx-mc-xcx" id="X7Q-Jg-Zrq"/>
@@ -136,9 +336,16 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m3e-6C-Mdr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="469" y="-20"/>
+            <point key="canvasLocation" x="474" y="-4"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="featured_img@2x.png" width="641" height="480"/>
+        <image name="postLoveCountBG@2x.png" width="168" height="64"/>
+        <image name="ratingBox@2x.png" width="100" height="116"/>
+        <image name="userAvatar.png" width="30" height="30"/>
+        <image name="userAvatar@2x.png" width="61" height="60"/>
+    </resources>
     <classes>
         <class className="CoreDataTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
@@ -152,8 +359,31 @@
         <class className="MenuViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
         </class>
+        <class className="MyCustomCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyCustomCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="avatarImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="featuredImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="postAddressText" candidateClass="TTTAttributedLabel"/>
+                <relationship kind="outlet" name="postCommentCountText" candidateClass="TTTAttributedLabel"/>
+                <relationship kind="outlet" name="postDescription" candidateClass="TTTAttributedLabel"/>
+                <relationship kind="outlet" name="postLoveCountText" candidateClass="TTTAttributedLabel"/>
+                <relationship kind="outlet" name="postRatingScoreText" candidateClass="TTTAttributedLabel"/>
+                <relationship kind="outlet" name="postSaveCountText" candidateClass="TTTAttributedLabel"/>
+                <relationship kind="outlet" name="postTitle" candidateClass="TTTAttributedLabel"/>
+                <relationship kind="outlet" name="ratingScore" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="timeStampText" candidateClass="TTTAttributedLabel"/>
+                <relationship kind="outlet" name="userName" candidateClass="TTTAttributedLabel"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
         <class className="PhotographerNavigationViewController" superclassName="UINavigationController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotographerNavigationViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="revealMenu:"/>
+            </relationships>
         </class>
         <class className="PhotographersTableViewController" superclassName="CoreDataTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotographersTableViewController.h"/>
@@ -163,6 +393,15 @@
         </class>
         <class className="SecondViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SecondViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="revealMenu:"/>
+            </relationships>
+        </class>
+        <class className="TTTAttributedLabel" superclassName="UILabel">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TTTAttributedLabel.h"/>
+            <relationships>
+                <relationship kind="outlet" name="delegate"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		850EED5A176ABF4E003601CE /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 850EED59176ABF4E003601CE /* HomeTableViewCell.m */; };
+		853586DB1778843D006F0229 /* MyCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 853586DA1778843D006F0229 /* MyCustomCell.m */; };
+		853586DD17789966006F0229 /* ratingBox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 853586DC17789966006F0229 /* ratingBox@2x.png */; };
+		853586DF1778B1C4006F0229 /* postLoveCountBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 853586DE1778B1C4006F0229 /* postLoveCountBG@2x.png */; };
 		85BDC06C1764B7170014174F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85BDC06B1764B7170014174F /* UIKit.framework */; };
 		85BDC06E1764B7170014174F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85BDC06D1764B7170014174F /* Foundation.framework */; };
 		85BDC0701764B7170014174F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85BDC06F1764B7170014174F /* CoreGraphics.framework */; };
@@ -62,13 +64,14 @@
 		85E3EE97176722EC00B676B3 /* userAvatar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 85E3EE91176722EC00B676B3 /* userAvatar@2x.png */; };
 		85E3EEA317672B5C00B676B3 /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E3EEA217672B5C00B676B3 /* TTTAttributedLabel.m */; };
 		85E3EEA517672B9A00B676B3 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85E3EEA417672B9A00B676B3 /* CoreText.framework */; };
-		85E3EEA7176731F100B676B3 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85E3EEA6176731F100B676B3 /* Reveal.framework */; };
 		85E3EEA91767321D00B676B3 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85E3EEA81767321C00B676B3 /* CFNetwork.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		850EED58176ABF4E003601CE /* HomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCell.h; sourceTree = "<group>"; };
-		850EED59176ABF4E003601CE /* HomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCell.m; sourceTree = "<group>"; };
+		853586D91778843D006F0229 /* MyCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCustomCell.h; sourceTree = "<group>"; };
+		853586DA1778843D006F0229 /* MyCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCustomCell.m; sourceTree = "<group>"; };
+		853586DC17789966006F0229 /* ratingBox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ratingBox@2x.png"; sourceTree = "<group>"; };
+		853586DE1778B1C4006F0229 /* postLoveCountBG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "postLoveCountBG@2x.png"; sourceTree = "<group>"; };
 		85BDC0681764B7170014174F /* Photomania.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photomania.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85BDC06B1764B7170014174F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		85BDC06D1764B7170014174F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -144,7 +147,6 @@
 		85E3EEA117672B5C00B676B3 /* TTTAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTAttributedLabel.h; sourceTree = "<group>"; };
 		85E3EEA217672B5C00B676B3 /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
 		85E3EEA417672B9A00B676B3 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
-		85E3EEA6176731F100B676B3 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reveal.framework; path = Photomania/Vendor/Reveal.framework; sourceTree = "<group>"; };
 		85E3EEA81767321C00B676B3 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -160,7 +162,6 @@
 				85E3EEA517672B9A00B676B3 /* CoreText.framework in Frameworks */,
 				85BDC06C1764B7170014174F /* UIKit.framework in Frameworks */,
 				85BDC06E1764B7170014174F /* Foundation.framework in Frameworks */,
-				85E3EEA7176731F100B676B3 /* Reveal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,7 +191,6 @@
 			isa = PBXGroup;
 			children = (
 				85E3EEA81767321C00B676B3 /* CFNetwork.framework */,
-				85E3EEA6176731F100B676B3 /* Reveal.framework */,
 				85E3EEA417672B9A00B676B3 /* CoreText.framework */,
 				85BDC0D81765D9620014174F /* QuartzCore.framework */,
 				85BDC0B01764D89C0014174F /* CoreData.framework */,
@@ -251,9 +251,11 @@
 		85BDC152176616D30014174F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				853586DE1778B1C4006F0229 /* postLoveCountBG@2x.png */,
 				85E3EE8C176722EC00B676B3 /* featured_img.png */,
 				85E3EE8D176722EC00B676B3 /* featured_img@2x.png */,
 				85E3EE8E176722EC00B676B3 /* ratingBox_BG.png */,
+				853586DC17789966006F0229 /* ratingBox@2x.png */,
 				85E3EE8F176722EC00B676B3 /* ratingBox_BG@2x.png */,
 				85E3EE90176722EC00B676B3 /* userAvatar.png */,
 				85E3EE91176722EC00B676B3 /* userAvatar@2x.png */,
@@ -375,8 +377,8 @@
 		85E3EE9C1767257C00B676B3 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				850EED58176ABF4E003601CE /* HomeTableViewCell.h */,
-				850EED59176ABF4E003601CE /* HomeTableViewCell.m */,
+				853586D91778843D006F0229 /* MyCustomCell.h */,
+				853586DA1778843D006F0229 /* MyCustomCell.m */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -470,6 +472,8 @@
 				85E3EE95176722EC00B676B3 /* ratingBox_BG@2x.png in Resources */,
 				85E3EE96176722EC00B676B3 /* userAvatar.png in Resources */,
 				85E3EE97176722EC00B676B3 /* userAvatar@2x.png in Resources */,
+				853586DD17789966006F0229 /* ratingBox@2x.png in Resources */,
+				853586DF1778B1C4006F0229 /* postLoveCountBG@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,7 +503,7 @@
 				85BDC10A1765EB2F0014174F /* SecondViewController.m in Sources */,
 				85E3EE701766CF0000B676B3 /* PhotographerNavigationViewController.m in Sources */,
 				85E3EEA317672B5C00B676B3 /* TTTAttributedLabel.m in Sources */,
-				850EED5A176ABF4E003601CE /* HomeTableViewCell.m in Sources */,
+				853586DB1778843D006F0229 /* MyCustomCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,11 +591,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Photomania/Vendor\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Photomania/Photomania-Prefix.pch";
 				INFOPLIST_FILE = "Photomania/Photomania-Info.plist";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_CODE_SIGN_FLAGS = "";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -603,11 +609,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Photomania/Vendor\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Photomania/Photomania-Prefix.pch";
 				INFOPLIST_FILE = "Photomania/Photomania-Info.plist";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_CODE_SIGN_FLAGS = "";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
